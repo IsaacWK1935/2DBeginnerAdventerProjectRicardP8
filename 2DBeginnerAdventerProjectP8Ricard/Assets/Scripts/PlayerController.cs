@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 7.0f;
 
     public int maxHealth = 5;
+
+    public GameObject projectilePrefab;
+
     public float timeInvincible = 2.0f;
     public int health{ get { return currentHealth; } }
     int currentHealth;
@@ -55,6 +58,10 @@ public class PlayerController : MonoBehaviour
                 isInvincible = false;
             }
         }
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            Launch();
+        }
     }    
 
     void FixedUpdate()
@@ -82,4 +89,12 @@ public class PlayerController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
+
+    void Launch()
+    {
+        GameObject projectleObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.7f, Quaternion.identity);
+
+        Projectile projectile = projectilePrefab.GetComponent<Projectile>();
+        projectile.Launch(lookDirection);
+    }     
 }

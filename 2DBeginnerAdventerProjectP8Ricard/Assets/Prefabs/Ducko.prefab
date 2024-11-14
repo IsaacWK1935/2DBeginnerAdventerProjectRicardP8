@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3571186147363930952}
   - component: {fileID: 4872053641253298302}
   - component: {fileID: 477420943163765393}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ducko
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   maxHealth: 5
+  projectilePrefab: {fileID: 1240050497190242291, guid: da40c75294f899846baa5ed60f637009,
+    type: 3}
   timeInvincible: 2
 --- !u!50 &3571186147363930952
 Rigidbody2D:
