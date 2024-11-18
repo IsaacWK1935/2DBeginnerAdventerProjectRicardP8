@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
                 isInvincible = false;
             }
         }
-        if(Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.C))
         {
             Launch();
         }
@@ -92,9 +92,11 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
-        GameObject projectleObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.7f, Quaternion.identity);
+        GameObject projectleObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 2.0f, Quaternion.identity);
 
         Projectile projectile = projectilePrefab.GetComponent<Projectile>();
-        projectile.Launch(lookDirection);
+        projectile.Launch(lookDirection, 300);
+
+        animator.SetTrigger("Launch");
     }     
 }
